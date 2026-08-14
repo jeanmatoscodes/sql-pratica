@@ -35,3 +35,32 @@ WHERE categoria = 'Livros';
 SELECT nome, preco, categoria
 FROM produtos
 WHERE categoria <> 'Eletrônicos';
+
+
+-- Consulta 06 - Filtro com BETWEEN e IN
+
+SELECT nome, preco, estoque, categoria
+FROM produtos
+WHERE preco BETWEEN 50 AND 300
+AND estoque > 10
+AND categoria IN ('Eletrônicos', 'Livros')
+ORDER BY preco DESC;
+
+
+-- Consulta 07 - Filtro com LIKE, AND e OR
+
+SELECT nome, preco, estoque, categoria
+FROM produtos
+WHERE (nome LIKE '%fone%' AND preco > 80)
+OR (categoria = 'Livros' AND nome LIKE 'C%')
+ORDER BY nome ASC;
+
+
+-- Consulta 08 - Filtro com LIKE, IN e BETWEEN
+
+SELECT nome, preco, estoque, categoria
+FROM produtos
+WHERE nome LIKE '%a%'
+AND categoria IN ('Eletrônicos', 'Livros', 'Casa')
+AND preco BETWEEN 100 AND 500
+ORDER BY preco ASC;
